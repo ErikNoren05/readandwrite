@@ -20,13 +20,23 @@ namespace Lib
 		file << fileContent;
 		file.close();
 	}
-
-	std::string filepath1 = "minfil.txt";
+	
+	void ReadFromFile()
+	{
+		std::string fileContent;
+		std::ifstream openFile("minfil.txt");
+		while (std::getline(openFile, fileContent))
+		{
+			std::cout << "Står i fil: " << fileContent << "\n";
+		}
+		openFile.close();
+	}
 }
 
 
 int main() 
 {
 	Lib::print(123);
-	Lib::WriteToFile(Lib::filepath1);
+	Lib::WriteToFile("minfil.txt");
+	Lib::ReadFromFile();
 }
